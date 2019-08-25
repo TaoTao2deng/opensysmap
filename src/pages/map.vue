@@ -2,6 +2,8 @@
   <div id="map"></div>
 </template>
 <script>
+import "leaflet";
+
 export default {};
 </script>
 <style lang="scss" scoped>

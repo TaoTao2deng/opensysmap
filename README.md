@@ -27,3 +27,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### 设计流程图
+![Image text](../static/调起第三方地图.jpg)
+
