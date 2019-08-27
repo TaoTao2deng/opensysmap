@@ -14,10 +14,7 @@ export default {
   },
   methods: {
     init() {
-      console.dir();
-      axios.get("/data/data.json").then(data => {
-        console.log(data);
-      });
+      // 请求数据
     }
   },
   created() {
