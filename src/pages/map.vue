@@ -1,5 +1,7 @@
 <template>
-  <div id="map"></div>
+  <div id="map">
+    <div class="nameandaddress"></div>
+  </div>
 </template>
 <script>
 import Axios from "axios";
@@ -26,7 +28,7 @@ export default {
       this.map = L.map("map", {
         minZoom: 3,
         maxZoom: 18,
-        center: [23.1175784, 113.2430314],
+        center: [23.052582, 113.403842],
         zoom: 12,
         zoomControl: false,
         editable: true,
@@ -59,12 +61,18 @@ export default {
         this.markerDatas = data.data;
         this.markerDatas.forEach(markerData => {
           const { lat, lng, name } = markerData;
-          L.marker([lat, lng], { icon: divIcon, alt: name, title: name }).addTo(
-            this.map
-          );
+          const marker = L.marker([lat, lng], {
+            icon: divIcon,
+            alt: name,
+            title: name
+          });
+          marker.addTo(this.map);
+          marker.on("click", () => {
+            console.log(markerData);
+            //打开属性信息框
+          });
         });
       });
-
       //c
     }
   },
@@ -83,5 +91,12 @@ export default {
 #map {
   width: 100%;
   height: 100%;
+  position: relative;
+  .nameandaddress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 </style>

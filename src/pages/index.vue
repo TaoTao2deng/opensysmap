@@ -1,19 +1,13 @@
 <template>
-  <div
-    class="box"
-    v-loading="loading"
-    element-loading-text="欢迎你的到来"
-    element-loading-spinner="el-icon-loading"
-    element-loading-background="rgba(0, 0, 0, 0.8)"
-    customClass="loading"
-  ></div>
+  <div class="box">
+    <van-loading class="loading" size="50px" color="#1989fa" vertical>欢迎你的到来</van-loading>
+  </div>
 </template>
 <script>
 /***
  * 欢迎页
  */
 import axios from "axios";
-import { setTimeout } from "timers";
 export default {
   data() {
     return {
@@ -38,5 +32,15 @@ export default {
 .box {
   width: 100%;
   height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  .loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /deep/ .van-loading__text {
+      color: #1989fa;
+    }
+  }
 }
 </style>
